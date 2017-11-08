@@ -4,18 +4,60 @@ var greenCar = document.getElementById("greenCar");
 
 var redCar = document.getElementById("redCar");
 
-var number = Math.random();
+var number = Math.random() * 100;
+var number2 = Math.random() * 100;
 
-number = number * 100;
-
-function startRace()
+function changeLight()
 {
     image.src = "Images/greenStopLight.png";
 
-    for (var i = 0; i < 100; i++)
-    {
-        greenCar.style.marginLeft += number + 'px';
+}
+
+function startRace()
+{
+    setTimeout(function () {
+        var newNumber = (Math.random() * 100) + number;
+        var newNumber2 = (Math.random() * 100) + number2;
         
-        redCar.style.marginLeft += number + 'px';
-    }
+        greenCar.style.marginLeft = newNumber + 'px';
+                
+        redCar.style.marginLeft = newNumber2 + 'px';
+        
+        number = newNumber;
+        number2 = newNumber2;
+        
+        var greenDistance = greenCar.style.marginLeft.slice(0, -2);
+        var redDistance = redCar.style.marginLeft.slice(0, -2);
+
+        var width = screen.width;
+
+        if (greenDistance >= width - 150)
+        {
+            window.alert("The green car won!");
+            reset();
+        }
+        else if (redDistance >= width - 150)
+        {
+            window.alert("The red car won!");
+            reset();
+        }
+        else
+        {
+            startRace();
+        }       
+    }, 500);       
+}
+
+function reset()
+{
+    image.src = "Images/redStopLight.png";
+
+    greenCar.style.marginLeft = 0;
+    redCar.style.marginLeft = 0;
+    greenDistance = 0;
+    redDistance = 0;
+    newNumber = 0;
+    newNumber2 = 0;
+    number = 0;
+    number2 = 0;
 }
