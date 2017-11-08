@@ -36,22 +36,12 @@ function startRace()
         {
             winningCar.style.display = 'inline';
             window.alert("The green car won!");
-            var anotherRace = confirm("Would you like to race again?")
-            if (anotherRace)
-            {
-                reset(); 
-            }
         }
         else if (redDistance >= width - 150)
         {           
             document.getElementById("winningCarID").src = "Images/redCar.png";
             winningCar.style.display = 'inline';
-            window.alert("The red car won!");
-            var anotherRace = confirm("Would you like to race again?")
-            if (anotherRace)
-            {
-                reset(); 
-            }                  
+            window.alert("The red car won!");                  
         }
         else
         {
