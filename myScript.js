@@ -1,21 +1,15 @@
 var image = document.getElementById("redStopLight");
-
 var greenCar = document.getElementById("greenCar");
-
 var redCar = document.getElementById("redCar");
-
 var winningCar = document.getElementById("WinningCar");
 winningCar.style.display = 'none';
-
 var number = Math.random() * 100;
 var number2 = Math.random() * 100;
-
 var raceStarted = false;
 
 function changeLight()
 {
     image.src = "Images/greenStopLight.png";
-
 }
 
 function startRace()
@@ -57,8 +51,7 @@ function startRace()
             if (anotherRace)
             {
                 reset(); 
-            }
-                     
+            }                  
         }
         else
         {
